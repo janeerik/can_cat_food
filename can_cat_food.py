@@ -26,6 +26,7 @@ def index():
     local_time = datetime.now(pytz.timezone("Europe/Tallinn"))
     now = datetime.strftime(local_time, "%d-%m-%Y %H:%M:%S")
     conn.execute("INSERT INTO meals (last_meal) VALUES (?)", (now,))
+    conn.commit()
     last_meal = conn.execute(query).fetchone()
     conn.close()
 
