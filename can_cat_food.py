@@ -1,5 +1,7 @@
 import sqlite3
 from datetime import datetime
+
+import pytz
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
@@ -21,7 +23,8 @@ def index():
 
         return render_template("index.html", last_meal=last_meal)
 
-    now = datetime.strftime(datetime.now(), "%d-%m-%Y %H:%M:%S")
+    local_time = datetime.now(pytz.timezone("Europe/Tallinn"))
+    now = datetime.strftime(local_time, "%d-%m-%Y %H:%M:%S")
     conn.execute("INSERT INTO meals (last_meal) VALUES (?)", (now,))
     last_meal = conn.execute(query).fetchone()
     conn.close()
