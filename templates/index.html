@@ -13,14 +13,14 @@
 
         .content {
             position: absolute;
-            top: 40%;
+            top: 30%;
             text-align: center;
         }
 
         .feed-cat-button {
             display: inline-flex;
             align-items: center;
-            padding: 1rem;
+            padding: 2rem;
             border-width: 1px;
             border-color: transparent;
             border-radius: 9999px;
@@ -29,7 +29,7 @@
             background-color: rgb(79 70 229);
             margin-top: 20px;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 36px;
             font-weight: bold;
         }
 
@@ -41,12 +41,16 @@
             outline: 2px solid transparent;
             outline-offset: 2px;
         }
+
+        .font-huge {
+            font-size: 42px;
+        }
     </style>
 </head>
 <body class="container">
 <div class="content">
-    <h3>Can Cat Food App</h3>
-    <h4>Cat was fed at: {{ last_meal["last_meal"] }}</h4>
+    <h1 class="font-huge">Can Cat Food App</h1>
+    <h4 class="font-huge">Cat was fed at: {{ last_meal["last_meal"] }}</h4>
     <form method="post" action="/">
         <input type="submit" class="feed-cat-button" name="feed_cat_button" value="Feed the cat">
     </form>
