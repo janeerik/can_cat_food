@@ -34,14 +34,14 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-#### Create the database
+#### Create and migrate the database
 
 ```shell
-python init_db.py
+flask db upgrade
 ```
 
 #### Run the application in development mode
 
 ```shell
-flask --app can_cat_food --debug run
+flask --debug run
 ```
